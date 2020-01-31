@@ -1,0 +1,21 @@
+<header >
+  <div >
+    <nav>
+      <ul >
+          <li><%= link_to "Users", '#' %></li>
+          <li>
+            <a href="#">
+              Account 
+            </a>
+          </li>
+       <% #if logged_in? %>
+              <li>
+                <%= link_to "Sign out", logout_path, method: :delete %>
+              </li>
+        <% #else %>
+          <li><%= link_to "Sign in", login_path %></li>
+        <% #end %>
+      </ul>
+    </nav>
+  </div>
+</header>
