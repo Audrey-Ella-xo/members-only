@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts
   attr_accessor :remember_token
   after_create :remember
   validates :name, presence: true

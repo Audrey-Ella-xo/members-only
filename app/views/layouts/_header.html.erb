@@ -2,11 +2,8 @@
   <div >
     <nav>
       <ul >
-          <li><%= link_to "Users", '#' %></li>
           <li>
-            <a href="#">
-              Account 
-            </a>
+          <%= link_to 'Create new posts', new_post_path, class: 'new_post' %>
           </li>
        <% if logged_in? %>
               <li>

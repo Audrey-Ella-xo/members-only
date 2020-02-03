@@ -20,7 +20,6 @@ module SessionsHelper
         @current_user = user
       end
     end
-   # puts "THIS IS THE current_USER #{@current_user}"
   end
 
   def current_user=(user)
