@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
+
+    @post.user_id = current_user.id
+
+    @post.save
+
     redirect_to root_url
   end
 
@@ -18,7 +23,7 @@ class PostsController < ApplicationController
     redirect_to login_path unless logged_in?
     end 
 
-    def comment_params
-      params.require(:post).permit(:title, :body, current_user)
+    def post_params
+      params.require(:post).permit(:title, :body)
     end
 end
