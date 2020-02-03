@@ -23,6 +23,10 @@ module SessionsHelper
    # puts "THIS IS THE current_USER #{@current_user}"
   end
 
+  def current_user=(user)
+    @current_user = user
+  end
+
   def forget(user)
     user.forget
     cookies.delete(:user_id)
