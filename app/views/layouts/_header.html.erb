@@ -3,15 +3,18 @@
     <nav>
       <ul >
        <% if logged_in? %>
-          <li>
-          <%= link_to 'Create new posts', new_post_path, class: 'new_post' %>
+          <li class="h_li">
+          <%= link_to 'Create new posts', new_post_path, class: 'new_article h_a' %>
           </li>
-              <li>
-                <%= link_to "Sign out", logout_path, method: :delete %>
+              <li class="h_li">
+                <%= link_to "Sign out", logout_path, method: :delete, class: 'new_article h_a' %>
               </li>
         <% else %>
-          <li><%= link_to "Sign in", login_path %></li>
+          <li class="h_li"><%= link_to "Sign in", login_path, class: 'new_article h_a' %></li>
         <% end %>
+          <li class="h_li">
+          <%= link_to 'All posts', root_path, class: 'new_article h_a' %>
+          </li>
       </ul>
     </nav>
   </div>

@@ -1,16 +1,13 @@
-<h1>All Posts</h1>
+<h1>Members Only</h1>
 
 <ul id="posts">
   <% @posts.each do |post| %>
     <li>
-      <%= post.title %>
-    
-    <% if logged_in? %>
-    -----
-    <%= User.find(post.user_id).name %>
-    <% end %>
+      <b>Title : <%= post.title %> 
+      <%= "----- Author: #{author post.user_id}" if logged_in? %></b>
+      <p>body : <%= post.body %></p>
     </li>
-    
+
   <% end %>
 </ul>
 
