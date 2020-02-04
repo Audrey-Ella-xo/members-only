@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   has_secure_password
 
-
   # Returns a random token.
   def self.new_token
     Digest::SHA1.hexdigest SecureRandom.urlsafe_base64.to_s
