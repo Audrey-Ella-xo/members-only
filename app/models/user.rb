@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :posts
   attr_accessor :remember_token
@@ -7,14 +9,13 @@ class User < ApplicationRecord
   has_secure_password
 
   # Returns the hash digest of the given string.
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-    
+
   # Returns a random token.
-  def User.new_token
+  def self.new_token
     Digest::SHA1.hexdigest SecureRandom.urlsafe_base64.to_s
   end
 

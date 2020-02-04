@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :is_logged_in?, only: [:new, :create] 
+  before_action :sign_in?, only: %i[new create]
   def new
     @post = Post.new
   end
@@ -17,13 +19,14 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-  
-  private   
-    def is_logged_in?
-    redirect_to login_path unless logged_in?
-    end 
 
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+  private
+
+  def sign_in?
+    redirect_to login_path unless logged_in?
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 end
