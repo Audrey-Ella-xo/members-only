@@ -1,0 +1,13 @@
+<h1>Members Only</h1>
+
+<ul id="posts">
+  <% @posts.each do |post| %>
+    <li>
+      <b>Title : <%= post.title %> 
+      <%= "----- Author: #{author post.user_id}" if logged_in? %></b>
+      <p>body : <%= post.body %></p>
+    </li>
+
+  <% end %>
+</ul>
+
