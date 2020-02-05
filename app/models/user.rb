@@ -16,7 +16,7 @@ class User < ApplicationRecord
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token
-    update_attribute(:remember_digest, remember_token)
+    self.remember_digest = remember_token
   end
 
   def forget
